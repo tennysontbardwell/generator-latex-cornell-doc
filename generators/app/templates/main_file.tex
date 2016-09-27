@@ -1,0 +1,26 @@
+\input{template.tex}
+
+\newcommand{\CoverAuthor}{<%= cover_author %>}
+\newcommand{\HeaderAuthor}{<%= header_author %>}
+\newcommand{\Title}{<%= title %>}
+\newcommand{\CouseCode}{<%= course_code %>}
+\newcommand{\CouseName}{<%= course_name %>}
+\newcommand{\ProfessorName}{<%= professor_name %>}
+
+\pagestyle{fancy}
+\lhead{\HeaderAuthor}
+
+\titleformat{\section}
+  {\normalfont\LARGE\bfseries\clearpage}
+  {\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+
+\begin{document}
+\sloppy
+
+\input{cover_page.tex}
+
+\section{First Section}
+
+\end{document}
+
