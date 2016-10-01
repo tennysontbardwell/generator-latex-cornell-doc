@@ -50,6 +50,10 @@ module.exports = yeoman.Base.extend({
       {filename: this.props.filename}
     );
     this.fs.copy(
+      this.templatePath('.gitignore'),
+      this.destinationPath('.gitignore')
+    );
+    this.fs.copy(
       this.templatePath('cover_page.tex'),
       this.destinationPath('cover_page.tex')
     );
