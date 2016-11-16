@@ -16,7 +16,7 @@ module.exports = yeoman.Base.extend({
         type: 'rawlist',
         name: 'couse',
         message: 'What class is this for?',
-        choices: ['CS 3110', 'ECE 2300', 'CS 5414']
+        choices: ['CS 3110', 'ECE 2300', 'CS 5414', 'BTRY 3080']
       },
       {
         type: 'input',
@@ -80,6 +80,11 @@ module.exports = yeoman.Base.extend({
       couse.course_code = 'ECE 2300';
       couse.couse_name = 'Digital Logic and Computer Organization';
       couse.professor_name = 'David \\textsc{Albonesi}';
+    }
+    if (this.props.couse === 'BTRY 3080') {
+      couse.course_code = 'BTRY 3080';
+      couse.couse_name = 'Probability Models and Inference';
+      couse.professor_name = 'Florentina \\textsc{Bunea}';
     }
     this.fs.copyTpl(
       this.templatePath('main_file.tex'),
