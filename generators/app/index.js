@@ -16,7 +16,7 @@ module.exports = yeoman.Base.extend({
         type: 'rawlist',
         name: 'couse',
         message: 'What class is this for?',
-        choices: ['CS 3110', 'ECE 2300', 'CS 5414', 'BTRY 3080']
+        choices: ['CS 4850', 'CS 4820']
       },
       {
         type: 'input',
@@ -66,25 +66,15 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('template.tex')
     );
     var couse = {};
-    if (this.props.couse === 'CS 5414') {
-      couse.course_code = 'CS 5414';
-      couse.couse_name = 'Principles of Distributed Computing';
-      couse.professor_name = 'Lorenzo Alvisi';
+    if (this.props.couse === 'CS 4850') {
+      couse.course_code = 'CS 4850';
+      couse.couse_name = 'Mathematical Foundations for the Information Age';
+      couse.professor_name = 'John \\textsc{Hopcroft}';
     }
-    if (this.props.couse === 'CS 3110') {
-      couse.course_code = 'CS 3110';
-      couse.couse_name = 'Data Structures and Functional Programming';
-      couse.professor_name = 'Michael \\textsc{Clarkson}';
-    }
-    if (this.props.couse === 'ECE 2300') {
-      couse.course_code = 'ECE 2300';
-      couse.couse_name = 'Digital Logic and Computer Organization';
-      couse.professor_name = 'David \\textsc{Albonesi}';
-    }
-    if (this.props.couse === 'BTRY 3080') {
-      couse.course_code = 'BTRY 3080';
-      couse.couse_name = 'Probability Models and Inference';
-      couse.professor_name = 'Florentina \\textsc{Bunea}';
+    if (this.props.couse === 'CS 4820') {
+      couse.course_code = 'CS 4820';
+      couse.couse_name = 'Introduction to Algorithms';
+      couse.professor_name = 'Éva \\textsc{Tardos}';
     }
     this.fs.copyTpl(
       this.templatePath('main_file.tex'),
