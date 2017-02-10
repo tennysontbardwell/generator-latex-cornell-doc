@@ -74,7 +74,7 @@ module.exports = yeoman.Base.extend({
     if (this.props.couse === 'CS 4820') {
       couse.course_code = 'CS 4820';
       couse.couse_name = 'Introduction to Algorithms';
-      couse.professor_name = 'Éva \\textsc{Tardos}';
+      couse.professor_name = 'Robert \\textsc{Kleinberg} \\\\ \\& \\\\ Frans \\textsc{Schalekamp}';
     }
     this.fs.copyTpl(
       this.templatePath('main_file.tex'),
