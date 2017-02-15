@@ -16,7 +16,7 @@ module.exports = yeoman.Base.extend({
         type: 'rawlist',
         name: 'couse',
         message: 'What class is this for?',
-        choices: ['CS 4850', 'CS 4820']
+        choices: ['CS 4850', 'CS 4820', 'CS 3420']
       },
       {
         type: 'input',
@@ -75,6 +75,11 @@ module.exports = yeoman.Base.extend({
       couse.course_code = 'CS 4820';
       couse.couse_name = 'Introduction to Algorithms';
       couse.professor_name = 'Robert \\textsc{Kleinberg} \\\\ \\& \\\\ Frans \\textsc{Schalekamp}';
+    }
+    if (this.props.couse === 'CS 3420') {
+      couse.course_code = 'CS 3420';
+      couse.couse_name = 'Embedded Systems';
+      couse.professor_name = 'Edward \\textsc{Suh}';
     }
     this.fs.copyTpl(
       this.templatePath('main_file.tex'),
