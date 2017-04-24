@@ -34,6 +34,12 @@ module.exports = yeoman.Base.extend({
         name: 'header_author',
         message: 'What should the name on the header be?',
         default: 'Tennyson T Bardwell (ttb33)'
+      },
+      {
+        type: 'confirm',
+        name: 'minted',
+        message: 'Do you want minted enabled?',
+        default: false
       }
     ];
 
@@ -47,7 +53,10 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('Makefile'),
       this.destinationPath('Makefile'),
-      {filename: this.props.filename}
+      {
+        filename: this.props.filename,
+        minted: this.props.minted
+      }
     );
     this.fs.copy(
       this.templatePath('.gitignore'),
@@ -61,9 +70,13 @@ module.exports = yeoman.Base.extend({
       this.templatePath('images/cu.png'),
       this.destinationPath('images/cu.png')
     );
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('template.tex'),
-      this.destinationPath('template.tex')
+      this.destinationPath('template.tex'),
+      {
+        minted: this.props.minted
+      }
+
     );
     var couse = {};
     if (this.props.couse === 'CS 4850') {
