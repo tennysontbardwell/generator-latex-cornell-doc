@@ -1,5 +1,6 @@
 \input{template.tex}
 
+% VARIABLES
 \newcommand{\CoverAuthor}{<%- cover_author %>}
 \newcommand{\HeaderAuthor}{<%- header_author %>}
 \newcommand{\Title}{<%- title %>}
@@ -7,14 +8,17 @@
 \newcommand{\CouseName}{<%- course_name %>}
 \newcommand{\ProfessorName}{<%- professor_name %>}
 
+% PAGE HEADER FORMATS
 \pagestyle{fancy}
 \lhead{\HeaderAuthor}
 
+% SECTION HEADER FORMAT
 \titleformat{\section}
-  {\normalfont\LARGE\bfseries
-  % \clearpage
-  }
+  {\normalfont\LARGE\bfseries}
   {\thesection}{1em}{}[{\titlerule[0.8pt]}]
+
+% SECTION HEADERS ON NEW PAGE
+% \newcommand{\sectionbreak}{\clearpage}
 
 
 \begin{document}
@@ -22,7 +26,7 @@
 
 \input{cover_page.tex}
 
-\section{First Section}
+\section*{First Section}
 
 \end{document}
 

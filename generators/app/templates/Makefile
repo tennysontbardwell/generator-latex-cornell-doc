@@ -7,4 +7,5 @@ open:
 	open <%= filename %>.pdf
 
 clean:
-	rm *.{aux,log,out}
+	rm *.{aux,log,out,toc}
+	rm -fr _minted*
