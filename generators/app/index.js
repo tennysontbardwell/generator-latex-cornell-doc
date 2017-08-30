@@ -16,7 +16,7 @@ module.exports = yeoman.Base.extend({
         type: 'rawlist',
         name: 'couse',
         message: 'What class is this for?',
-        choices: ['CS 4850', 'CS 4820', 'CS 3420']
+        choices: ['CS 2850', 'CS 6820', 'CS 4410', 'CS 4700', 'CS 4701', 'CS 5414', 'MATH 4310']
       },
       {
         type: 'input',
@@ -79,20 +79,40 @@ module.exports = yeoman.Base.extend({
 
     );
     var couse = {};
-    if (this.props.couse === 'CS 4850') {
-      couse.course_code = 'CS 4850';
-      couse.couse_name = 'Mathematical Foundations for the Information Age';
-      couse.professor_name = 'John \\textsc{Hopcroft}';
+    if (this.props.couse === 'CS 2850') {
+      couse.course_code = 'CS 2850';
+      couse.couse_name = 'Networks';
+      couse.professor_name = 'Jon \\textsc{Kleinberg} \\\\ \& \\\\ David \\textsc{Easley}';
     }
-    if (this.props.couse === 'CS 4820') {
-      couse.course_code = 'CS 4820';
-      couse.couse_name = 'Introduction to Algorithms';
-      couse.professor_name = 'Robert \\textsc{Kleinberg} \\\\ \\& \\\\ Frans \\textsc{Schalekamp}';
+    if (this.props.couse === 'CS 6820') {
+      couse.course_code = 'CS 6820';
+      couse.couse_name = 'Analysis of Algorithms';
+      couse.professor_name = 'Robert \\textsc{Kleinberg}';
     }
-    if (this.props.couse === 'CS 3420') {
-      couse.course_code = 'CS 3420';
-      couse.couse_name = 'Embedded Systems';
-      couse.professor_name = 'Edward \\textsc{Suh}';
+    if (this.props.couse === 'CS 4410') {
+      couse.course_code = 'CS 4410';
+      couse.couse_name = 'Operating Systems';
+      couse.professor_name = 'Anne \\textsc{Bracy} \\\\ \& \\\\ Emin \\textsc{Sirer}';
+    }
+    if (this.props.couse === 'CS 4700') {
+      couse.course_code = 'CS 4700';
+      couse.couse_name = 'Foundations of Artificial Intelligence';
+      couse.professor_name = 'Bart \\textsc{Selman}';
+    }
+    if (this.props.couse === 'CS 4701') {
+      couse.course_code = 'CS 4410';
+      couse.couse_name = 'Practicum in Artificial Intelligence';
+      couse.professor_name = 'Bart \\textsc{Selman}';
+    }
+    if (this.props.couse === 'CS 5414') {
+      couse.course_code = 'CS 5414';
+      couse.couse_name = 'Distributed Computing Principles';
+      couse.professor_name = 'Lorenzo \\textsc{Alvisi}';
+    }
+    if (this.props.couse === 'MATH 4310') {
+      couse.course_code = 'MATH 4310';
+      couse.couse_name = 'Linear Algebra';
+      couse.professor_name = 'Michael \\textsc{Stillman}';
     }
     this.fs.copyTpl(
       this.templatePath('main_file.tex'),
