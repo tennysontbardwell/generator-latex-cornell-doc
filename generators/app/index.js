@@ -16,7 +16,7 @@ module.exports = yeoman.Base.extend({
         type: 'rawlist',
         name: 'couse',
         message: 'What class is this for?',
-        choices: ['CS 2850', 'CS 6820', 'CS 4410', 'CS 4700', 'CS 4701', 'CS 5414', 'MATH 4310']
+        choices: ['CS 2850', 'CS 6820', 'CS 4410', 'MATH 4310', 'CS 4700', 'CS 4701', 'CS 5414']
       },
       {
         type: 'input',
