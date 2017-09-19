@@ -82,7 +82,7 @@ module.exports = yeoman.Base.extend({
     if (this.props.couse === 'CS 2850') {
       couse.course_code = 'CS 2850';
       couse.couse_name = 'Networks';
-      couse.professor_name = 'Jon \\textsc{Kleinberg} \\\\ \& \\\\ David \\textsc{Easley}';
+      couse.professor_name = 'Jon \\textsc{Kleinberg} \\\\ \\& \\\\ David \\textsc{Easley}';
     }
     if (this.props.couse === 'CS 6820') {
       couse.course_code = 'CS 6820';
@@ -92,7 +92,7 @@ module.exports = yeoman.Base.extend({
     if (this.props.couse === 'CS 4410') {
       couse.course_code = 'CS 4410';
       couse.couse_name = 'Operating Systems';
-      couse.professor_name = 'Anne \\textsc{Bracy} \\\\ \& \\\\ Emin \\textsc{Sirer}';
+      couse.professor_name = 'Anne \\textsc{Bracy} \\\\ \\& \\\\ Emin \\textsc{Sirer}';
     }
     if (this.props.couse === 'CS 4700') {
       couse.course_code = 'CS 4700';
