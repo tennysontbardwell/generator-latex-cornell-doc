@@ -82,7 +82,7 @@ module.exports = yeoman.Base.extend({
     if (this.props.couse === 'CS 4780') {
       couse.course_code = 'CS 4780';
       couse.couse_name = 'Machine Learning for Intelligent Systems';
-      couse.professor_name = 'Kilian \\textsc{Weinberger} \\\\ \\& \\\\ Chris de \\textsc{Sa}';
+      couse.professor_name = 'Kilian \\textsc{Weinberger} \\\\ \\& \\\\ Chris \\textsc{De Sa}';
     }
     if (this.props.couse === 'CS 6850') {
       couse.course_code = 'CS 6850';
