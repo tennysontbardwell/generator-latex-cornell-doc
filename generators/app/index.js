@@ -14,9 +14,9 @@ module.exports = yeoman.Base.extend({
       },
       {
         type: 'rawlist',
-        name: 'couse',
+        name: 'course',
         message: 'What class is this for?',
-        choices: ['CS 4780', 'CS 6850', 'CS 4120', 'MATH 3360', 'MATH 4410']
+        choices: ['PHYS 2213', 'MATH 3320']
       },
       {
         type: 'input',
@@ -78,32 +78,19 @@ module.exports = yeoman.Base.extend({
       }
 
     );
-    var couse = {};
-    if (this.props.couse === 'CS 4780') {
-      couse.course_code = 'CS 4780';
-      couse.couse_name = 'Machine Learning for Intelligent Systems';
-      couse.professor_name = 'Kilian \\textsc{Weinberger} \\\\ \\& \\\\ Chris de \\textsc{Sa}';
-    }
-    if (this.props.couse === 'CS 6850') {
-      couse.course_code = 'CS 6850';
-      couse.couse_name = 'The Structure of Information Networks';
-      couse.professor_name = 'Jon \\textsc{Kleinberg}';
-    }
-    if (this.props.couse === 'CS 4120') {
-      couse.course_code = 'CS 4120';
-      couse.couse_name = 'Introduction to Compilers';
-      couse.professor_name = 'Andrew \\textsc{Myers}';
-    }
-    if (this.props.couse === 'MATH 3360') {
-      couse.course_code = 'MATH 3360';
-      couse.couse_name = 'Applicable Algebra';
-      couse.professor_name = 'Allen \\textsc{Knutson}';
-    }
-    if (this.props.couse === 'MATH 4410') {
-      couse.course_code = 'MATH 4410';
-      couse.couse_name = 'Introduction to Combinatorics I';
-      couse.professor_name = 'Florian \\textsc{Frick}';
-    }
+    var course = {
+      'PHYS 2213' : {
+        'course_code': 'PHYS 2213',
+        'couse_name': 'Physics II: Electromagnetism',
+        'professor_name': 'Tomas \\textsc{Arias}'
+      },
+      'MATH 3320' : {
+        'course_code': 'MATH 3320',
+        'couse_name': 'Introduction to Number Theory',
+        'professor_name': 'Brian \\textsc{Hwang} \\\\\ \\& \\\\ Dan \\textsc{Barbasch}'
+      }
+    }[this.props.course];
+
     this.fs.copyTpl(
       this.templatePath('main_file.tex'),
       this.destinationPath(this.props.filename + '.tex'),
@@ -111,9 +98,9 @@ module.exports = yeoman.Base.extend({
         cover_author: this.props.cover_author,
         header_author: this.props.header_author,
         title: this.props.title,
-        course_code: couse.course_code,
-        course_name: couse.couse_name,
-        professor_name: couse.professor_name
+        course_code: course.course_code,
+        course_name: course.couse_name,
+        professor_name: course.professor_name
       }
     );
   },
