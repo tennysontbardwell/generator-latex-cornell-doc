@@ -4,8 +4,8 @@ default:
 	make watch
 
 build:
-	xelatex <% if (minted) { %>-shell-escape <% } %><%= filename %>.tex
-	xelatex <% if (minted) { %>-shell-escape <% } %><%= filename %>.tex
+	xelatex -halt-on-error <% if (minted) { %>-shell-escape <% } %><%= filename %>.tex || echo failed
+	xelatex -halt-on-error <% if (minted) { %>-shell-escape <% } %><%= filename %>.tex || echo failed
 
 open:
 	if type open &> /dev/null ; then open <%= filename %>.pdf ; else (nohup xdg-open <%= filename %>.pdf &> /dev/null &) ; fi
