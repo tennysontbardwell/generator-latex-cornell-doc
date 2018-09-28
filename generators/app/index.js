@@ -16,7 +16,7 @@ module.exports = yeoman.Base.extend({
         type: 'rawlist',
         name: 'course',
         message: 'What class is this for?',
-        choices: ['PHYS 2213', 'MATH 3320']
+        choices: ['PHYS 2213', 'MATH 3320', 'AEP 2640']
       },
       {
         type: 'input',
@@ -88,6 +88,11 @@ module.exports = yeoman.Base.extend({
         'course_code': 'MATH 3320',
         'couse_name': 'Introduction to Number Theory',
         'professor_name': 'Brian \\textsc{Hwang} \\\\\ \\& \\\\ Dan \\textsc{Barbasch}'
+      },
+      'AEP 2640' : {
+        'course_code': 'AEP 2640',
+        'couse_name': 'Interfacing The Digital Domain With An Analog World',
+        'professor_name': 'Gregory \\textsc{Fuchs}'
       }
     }[this.props.course];
 
