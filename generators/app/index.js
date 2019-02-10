@@ -2,21 +2,49 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var path = require('path');
+
+const courses = {
+  'MATH 4310' : {
+    'couse_name': 'Linear Algebra',
+    'professor_name': 'Benjamin \\textsc{Harris}'
+  },
+  'MATH 4740' : {
+    'couse_name': 'Stochastic Processes',
+    'professor_name': 'Christian \\textsc{Noack}'
+  },
+  'CS 4786' : {
+    'couse_name': 'Machine Learning for Data Science',
+    'professor_name': 'Karthik \\textsc{Sridharan}'
+  }
+}
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
+    const cwd = process.cwd().split(path.sep);
+    var _courses = Object.keys(courses);
+    var defaultCourse = null;
+    Object.keys(courses).forEach(course => {
+      if (cwd.indexOf(course.replace(' ', '').toLowerCase()) > -1) {
+        defaultCourse = course;
+      }
+    });
+    if (defaultCourse != null) {
+      _courses = _courses.filter(x => x != defaultCourse);
+      _courses.unshift(defaultCourse);
+    }
     var prompts = [
       {
         type: 'input',
         name: 'filename',
         message: 'What would you like the filename to be (no extension)?',
-        default: 'assignment'
+        default: process.cwd().split(path.sep).pop()
       },
       {
         type: 'rawlist',
         name: 'course',
         message: 'What class is this for?',
-        choices: ['PHYS 2213', 'MATH 3320', 'AEP 2640']
+        choices: _courses
       },
       {
         type: 'input',
@@ -78,23 +106,8 @@ module.exports = yeoman.Base.extend({
       }
 
     );
-    var course = {
-      'PHYS 2213' : {
-        'course_code': 'PHYS 2213',
-        'couse_name': 'Physics II: Electromagnetism',
-        'professor_name': 'Tomas \\textsc{Arias}'
-      },
-      'MATH 3320' : {
-        'course_code': 'MATH 3320',
-        'couse_name': 'Introduction to Number Theory',
-        'professor_name': 'Brian \\textsc{Hwang} \\\\\ \\& \\\\ Dan \\textsc{Barbasch}'
-      },
-      'AEP 2640' : {
-        'course_code': 'AEP 2640',
-        'couse_name': 'Interfacing The Digital Domain With An Analog World',
-        'professor_name': 'Gregory \\textsc{Fuchs}'
-      }
-    }[this.props.course];
+    var course = courses[this.props.course];
+    course.course_code = this.props.course;
 
     this.fs.copyTpl(
       this.templatePath('main_file.tex'),
